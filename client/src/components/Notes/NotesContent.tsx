@@ -53,7 +53,7 @@ export default function NotesContent({
       <p className="pl-8 pt-4">Pinned Items</p>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
         {currentUser && token && pinnedNotes.isSuccess && pinnedNotes.data ? (
-          pinnedNotes.data.map((note: noteType, index: number) => {
+          pinnedNotes?.data.map((note: noteType, index: number) => {
             return (
               <React.Fragment key={index}>
                 {<NoteCardForm note={note} key={note.id} pin={true} />}

@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
+import {
+  loadLanguage,
+  langs,
+  LanguageName,
+} from "@uiw/codemirror-extensions-langs";
 
 const extensionCache: { [key: string]: any } = {};
 
-export function useFormat({ format }: { format: string }) {
+export function useFormat({ format }: { format: LanguageName }) {
   const [extension, setExtension] = useState<any>(null);
 
   useEffect(() => {
@@ -13,33 +18,13 @@ export function useFormat({ format }: { format: string }) {
       }
 
       let loadedExtension;
-      switch (format) {
-        case "python":
-          loadedExtension = (await import("@codemirror/lang-python")).python();
-          break;
-        case "javascript":
-          loadedExtension = (
-            await import("@codemirror/lang-javascript")
-          ).javascript({ jsx: true, typescript: true });
-          break;
-        case "markdown":
-          loadedExtension = (
-            await import("@codemirror/lang-markdown")
-          ).markdown();
-          break;
-        case "php":
-          loadedExtension = (await import("@codemirror/lang-php")).php();
-          break;
-        case "sql":
-          loadedExtension = (await import("@codemirror/lang-sql")).sql();
-          break;
-        case "json":
-          loadedExtension = (await import("@codemirror/lang-json")).json();
-          break;
-        default:
-          loadedExtension = (
-            await import("@codemirror/lang-markdown")
-          ).markdown();
+
+      if (format in langs) {
+        loadedExtension = loadLanguage(`${format}`);
+      } else {
+        loadedExtension = (
+          await import("@codemirror/lang-markdown")
+        ).markdown();
       }
 
       extensionCache[format] = loadedExtension;

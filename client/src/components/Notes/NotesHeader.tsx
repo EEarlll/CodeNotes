@@ -158,7 +158,11 @@ export default function NotesHeader({
               <header.Label htmlFor="Format" className="text-right">
                 Format
               </header.Label>
-              <header.Popover open={openFormat} onOpenChange={setOpenFormat}>
+              <header.Popover
+                open={openFormat}
+                onOpenChange={setOpenFormat}
+                modal={true}
+              >
                 <header.PopoverTrigger asChild>
                   <header.Button
                     variant="outline"
@@ -218,7 +222,7 @@ export default function NotesHeader({
               <header.Label htmlFor="Category" className="text-right">
                 Category
               </header.Label>
-              <header.Popover open={open} onOpenChange={setOpen}>
+              <header.Popover open={open} onOpenChange={setOpen} modal={true}>
                 <header.PopoverTrigger asChild>
                   <header.Button
                     variant="outline"

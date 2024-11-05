@@ -88,10 +88,7 @@ export default function NotesSidebar({
   }
 
   return (
-    <noteSidebarUI.Collapsible
-      open={open}
-      onOpenChange={setOpen}
-    >
+    <noteSidebarUI.Collapsible open={open} onOpenChange={setOpen}>
       <noteSidebarUI.CollapsibleTrigger className="w-full">
         <div className="flex justify-between h-14 py-4">
           <div className="flex gap-2">
@@ -165,6 +162,16 @@ export default function NotesSidebar({
                 <noteSidebarUI.DialogFooter>
                   <noteSidebarUI.DialogClose
                     className={noteSidebarUI.buttonVariants()}
+                    onClick={() => {
+                      postMutation.mutate({
+                        url: `${
+                          import.meta.env.VITE_URL
+                        }/Notes/create/category/${formData.title}`,
+                        method: "POST",
+                        formData,
+                        token: currentUser?.ID_TOKEN,
+                      });
+                    }}
                   >
                     Save changes
                   </noteSidebarUI.DialogClose>

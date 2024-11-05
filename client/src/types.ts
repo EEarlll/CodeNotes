@@ -1,3 +1,5 @@
+import { LanguageName } from "@uiw/codemirror-extensions-langs";
+
 export type HTTPmethods = "put" | "patch" | "get" | "POST" | "delete";
 
 export type categoryType = {
@@ -12,7 +14,7 @@ export type noteType = {
   user: string;
   category: string;
   message: string;
-  format: string;
+  format: string | LanguageName;
   pin: number;
   DateCreated: string;
   token?: string | Promise<string>;
@@ -42,5 +44,3 @@ export type mutationType = {
   formData: noteType | categoryType | feedbackFormType;
   token?: string | Promise<string>;
 };
-
-
