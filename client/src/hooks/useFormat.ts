@@ -7,7 +7,7 @@ import {
 
 const extensionCache: { [key: string]: any } = {};
 
-export function useFormat({ format }: { format: LanguageName }) {
+export function useFormat({ format }: { format: LanguageName | string }) {
   const [extension, setExtension] = useState<any>(null);
 
   useEffect(() => {

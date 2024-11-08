@@ -40,7 +40,6 @@ export default function SignIn() {
         formData.password
       );
       navigate(`/Notes/${user.email}`);
-      
     } catch (error: any) {
       setErr(getMessageFromCode(error.message));
 
@@ -49,7 +48,7 @@ export default function SignIn() {
   }
 
   return (
-    <div className="w-full lg:grid lg:min-h-[100vh] lg:grid-cols-2 xl:min-h-[100vh]">
+    <div className="w-full lg:grid lg:min-h-[100vh] lg:grid-cols-2 xl:min-h-[100vh] dark:bg-black">
       <div className="flex items-center justify-center py-12">
         <div className="mx-auto grid w-[350px] gap-6">
           <div className="grid gap-2 text-center">
@@ -116,7 +115,7 @@ export default function SignIn() {
       </div>
       <div className="hidden bg-muted lg:block">
         <img
-          src={"https://placehold.co/1920x1080"}
+          src={"/login.jpg"}
           alt="Image"
           width="1920"
           height="1080"

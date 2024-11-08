@@ -151,7 +151,7 @@ export const basicSetup = {
   highlightActiveLine: false,
   highlightSelectionMatches: false,
   closeBracketsKeymap: false,
-  searchKeymap: false,
+  searchKeymap: true,
   historyKeymap: false,
   foldKeymap: false,
   completionKeymap: false,
