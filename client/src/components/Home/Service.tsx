@@ -104,7 +104,7 @@ export default function Service() {
   const { theme } = useTheme();
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
+  const [_, setCount] = useState(0);
 
   useEffect(() => {
     if (!api) {

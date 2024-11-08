@@ -13,9 +13,10 @@ import {
 
 export default function Notes() {
   const { user, category } = useParams<string>();
-  const [dataKey, setDataKey] = useState<number>(0);
+  const [_, setDataKey] = useState<number>(0);
   let [searchParams] = useSearchParams();
   const [search, setSearch] = useState<string | null>("");
+  
   useEffect(() => {
     if (searchParams.get("search")) {
       setSearch(searchParams.get("search"));
