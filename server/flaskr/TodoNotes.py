@@ -35,9 +35,9 @@ def index(category=None, user=None):
     if search:
         condition += f"{'AND' if condition else 'WHERE'} title LIKE ? "
         param.append("%" + search + "%")
-    prGreen(
-        f"SELECT * FROM tdn_Notes {condition} ORDER BY DateCreated DESC LIMIT {limit} OFFSET {offset}"
-    )
+    # prGreen(
+    #     f"SELECT * FROM tdn_Notes {condition} ORDER BY DateCreated DESC LIMIT {limit} OFFSET {offset}"
+    # )
     notes = db.execute(
         f"SELECT * FROM tdn_Notes {condition} ORDER BY DateCreated DESC LIMIT {limit} OFFSET {offset}",
         param,
@@ -115,7 +115,7 @@ def postNote(category=None):
         sqlNote = (
             "INSERT INTO tdn_Categories(title, user, DateCreated, uid) VALUES(?,?,?,?)"
             if category
-            else "INSERT INTO tdn_Notes(title, user, category, message, DateCreated, format, uid, pin) VALUES(?, ?, ?, ?, ?, ?, ?, ?);"
+            else "INSERT INTO tdn_Notes(title, user, category, message, DateCreated, format, uid) VALUES(?, ?, ?, ?, ?, ?, ?);"
         )
 
         paramNote = (
@@ -129,7 +129,6 @@ def postNote(category=None):
                 curr_date,
                 content["format"],
                 request.uid,
-                0,
             ]
         )
 
@@ -190,8 +189,6 @@ def delete(id, category=None):
         db.execute(sql, param)
         db.commit()
         return jsonify("Successfully deleted item"), 200
-    
-
 
 
 @bp.route("/<int:id>/pin", methods=["DELETE"])

@@ -1,3 +1,31 @@
+CREATE TABLE tdn_Notes(
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    user TEXT,
+    category TEXT,
+    [message] TEXT,
+    format TEXT,
+    [uid] TEXT,
+    DateCreated TEXT
+);
+
+CREATE TABLE tdn_Categories(
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    user TEXT,
+    [uid] TEXT,
+    DateCreated TEXT
+);
+
+CREATE TABLE tdn_Pins(
+    id INTEGER PRIMARY KEY,
+    [uid] TEXT,
+    user TEXT,
+    note_id INTEGER,
+    FOREIGN KEY (note_id) REFERENCES tdn_Notes(id)
+);
+
+
 -- DROP TABLE tdn_Notes;
 -- CREATE TABLE tdn_Notes(
 --     id INTEGER PRIMARY KEY,
