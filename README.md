@@ -70,7 +70,7 @@ docker compose up
 ```
 1. Access the app in your browser at `http://localhost`.
 
-    ## API Reference
+## API Reference
 
 ### Get Notes
 
