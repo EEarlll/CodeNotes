@@ -60,15 +60,15 @@ Navigate to the client and server folders and create .env files:
 ```bash
 cd client && touch .env && cd ../server/flaskr && touch .env
 ```
-1. Configure Firebase Authentication
+3. Configure Firebase Authentication
 * Obtain the necessary Firebase credentials for authentication.
 * Use the utils.py script to generate the `.env` file from your `service.json` file.
-2. Start the Application Using Docker
+4. Start the Application Using Docker
 From the base directory, bring up the containers with Docker Compose:
 ``` bash
 docker compose up
 ```
-1. Access the app in your browser at `http://localhost`.
+5. Access the app in your browser at `http://localhost`.
 
 ## API Reference
 
