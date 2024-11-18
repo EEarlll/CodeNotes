@@ -158,4 +158,3 @@ If you need to customize the settings for Flask, React, or Nginx, refer to the r
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
