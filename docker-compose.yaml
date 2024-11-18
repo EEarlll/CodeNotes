@@ -1,0 +1,26 @@
+
+services:
+  flask-server:
+    build: ./server
+    container_name: flask-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server/instance:/app/instance
+  
+  react-client:
+    build: ./client
+    container_name: react-client
+    ports:
+      - "3001:80"
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+     - "80:80"
+     - "443:443"
+    depends_on:
+      - flask-server
+      - react-client
+
