@@ -40,7 +40,7 @@ Ensure your project directory has the following structure:
         nginx.conf          # Nginx configuration file
     /server
         /flaskr
-            .env            # environment folder for firebase (required)
+            /.env            # environment folder for firebase (required)
     /certbot                # (Automatically generated after running Certbot service)
         /conf               # Certificate configuration
         /www                # Certbot web root
@@ -84,7 +84,7 @@ This will build and start the following services:
 ### 5. Accessing the App
 
 - The **React Client** will be accessible via `http://localhost` or your domain if you're using custom DNS (i.e., `http://earleustacio.me`).
-- The **API** will be accessible via `https://earleustacio.me/api`.
+- The **API** will be accessible via `https://localhost/api` or your domain if you're using custom DNS (i.e., `http://earleustacio.me/api`).
 
 ### 6. SSL Configuration
 
@@ -107,7 +107,7 @@ The `docker-compose.yml` file defines all the services and their configurations:
 ```yaml
 services:
   flask-server:
-    image: playground-flask-server:latest
+    image: CodeNotes-flask-server:latest
     container_name: flask-server
     ports:
       - "5000:5000"
@@ -115,7 +115,7 @@ services:
       - ./server/instance:/app/instance
 
   react-client:
-    image: playground-react-client:latest
+    image: CodeNotes-react-client:latest
     container_name: react-client
     ports:
       - "3001:80"
