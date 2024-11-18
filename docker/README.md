@@ -83,8 +83,8 @@ This will build and start the following services:
 
 ### 5. Accessing the App
 
-- The **React Client** will be accessible via `http://localhost` or your domain if you're using custom DNS (i.e., `http://earleustacio.me`).
-- The **API** will be accessible via `https://localhost/api` or your domain if you're using custom DNS (i.e., `http://earleustacio.me/api`).
+- The **React Client** will be accessible via `http://localhost` or your domain if you're using custom DNS (i.e., `https://earleustacio.me`).
+- The **API** will be accessible via `http://localhost/api` or your domain if you're using custom DNS (i.e., `https://earleustacio.me/api`).
 
 ### 6. SSL Configuration
 
